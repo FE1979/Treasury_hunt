@@ -32,7 +32,9 @@ def lookup_hunt(treasury_table):
         else:
             stack.append(pointer)
             pointer = next_cell
-        print(*stack)
+        for i in stack:
+            stdout.write(str(i) + " ")
+        stdout.write("\n")
 
     return result or 'NO TREASURE'
 
