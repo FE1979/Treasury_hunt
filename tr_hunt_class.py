@@ -36,14 +36,16 @@ class HuntLookup():
         else:
             self.stack.append(self.pointer)
             self.pointer = next_cell
-            for i in self.stack:
-                stdout.write(f"{i} ")
-            stdout.write("\n")
             result = self.get_hunt()
 
         return result
 
+    def result_output(self):
+        result = self.get_hunt()
+        trace = " ".join(str(i) for i in self.stack)
+        return f"{trace} {result}"
+
 
 treasury_table = ReadTreasury.get()
 hunt = HuntLookup(treasury_table)
-stdout.write(hunt.get_hunt())
+stdout.write(hunt.result_output())
